@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hot Dog or Not Hot Dog?</title>
+    <meta name="description" content="AI-powered tool to detect if an image contains a hot dog using Hugging Face">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Background elements -->
+    <div class="bg-gradient-1"></div>
+    <div class="bg-gradient-2"></div>
+
+    <div class="container">
+      <header>
+        <h1>Hot Dog / Not Hot Dog</h1>
+        <p class="subtitle">AI-Powered Food Recognition</p>
+      </header>
+
+      <div class="main-card glass-panel">
+        
+        <div class="token-section">
+          <label for="hf-token">Hugging Face API Token</label>
+          <input type="password" id="hf-token" placeholder="Enter your token (hf_...)" autocomplete="off" />
+          <p class="help-text">Your token is only used locally in your browser to process images directly.</p>
+        </div>
+
+        <div class="upload-section" id="drop-zone">
+          <input type="file" id="file-input" accept="image/*" hidden />
+          <div class="upload-content">
+            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <p>Drag and drop an image here</p>
+            <span>or</span>
+            <button id="browse-btn" class="btn-primary">Browse Files</button>
+          </div>
+          <div class="image-preview-container hidden" id="preview-container">
+            <img id="image-preview" src="" alt="Preview" />
+          </div>
+        </div>
+
+        <div class="actions center hidden" id="actions-container">
+            <button id="predict-btn" class="btn-action">Predict</button>
+            <button id="reset-btn" class="btn-secondary">Start Over</button>
+        </div>
+
+        <div class="result-section hidden" id="result-section">
+          <div class="loader hidden" id="loader"></div>
+          <h2 class="result-text" id="result-text"></h2>
+          <div class="confidence-bar" id="confidence-container">
+            <div class="confidence-fill" id="confidence-fill"></div>
+          </div>
+          <p class="confidence-text" id="confidence-text"></p>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
